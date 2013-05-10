@@ -13,6 +13,11 @@
 /**
  * Load Core Classes
  */
+ 
+/* no longer required due to composer suppoer */
+ 
+return;
+ 
 include "EWSType.php";
 include "NTLMSoapClient.php";
 include "NTLMSoapClient/Exchange.php";
