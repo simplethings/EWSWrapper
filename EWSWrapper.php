@@ -294,7 +294,7 @@ Class EWSWrapper {
 				 $reminderdue=null, $reminderStart=null, $status=null, $percentComplete=null,
 				 $sensitivity=null, $importance=null,  $category=null){
 		$updates = array(
-			'task:DueDate'			  => date('c', $due),
+			'task:DueDate'			  => $due ? date('c', $due) : null,
 			'task:Status'			  => $status ? constant("EWSType_TaskStatusType::".$status) : null,
 			'task:Sensitivity'		  => $sensitivity ? constant("EWSType_SensitivityChoicesType::".$sensitivity) : null,
 			'item:Importance'		  => $importance ? constant("EWSType_ImportanceChoicesType::".$importance) : null,
