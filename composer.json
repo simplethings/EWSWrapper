@@ -4,7 +4,7 @@
     "description": "PHP Exchange Web Services",
     "keywords": ["exchange", "php"],
     "homepage": "http://ewswrapper.lafiel.net/",
-    "license": "n.a.",
+    "license": "New BSD License",
     "authors": [
         {"name": "Michal Korzeniowski", "email": "mko_san@lafiel.net"},
         {"name": "GitHub Contributors", "homepage": "https://github.com/maiiku/EWSWrapper/graphs/contributors"}
