@@ -448,7 +448,7 @@ Class EWSWrapper {
 				$start = $start ? $start : 0;
 				//do we have and date?
 				$end = $end ? $end : mktime(0, 0, 0, 1, 1, 2038);
-				print_r(array($start, $end));
+				//print_r(array($start, $end));
 				//create AND restrction
 				$request->Restriction = new EWSType_RestrictionType();
 				$request->Restriction->And = new EWSType_AndType();
