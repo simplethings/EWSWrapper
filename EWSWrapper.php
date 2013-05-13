@@ -60,7 +60,7 @@ Class EWSWrapper {
 		$this->host = $host;
 		$this->username = $username;
 		$this->password = $password;
-		$this->ews = new ExchangeWebServices($this->host, $this->username, $this->password, $timeArr, $curlAuthNtlm);
+		$this->ews = new ExchangeWebServices($this->host, $this->username, $this->password, $curlAuthNtlm);
 		
 		if (is_array($timeArr)){
 			$this->BaseOffset 	= $timeArr['BaseOffset'] 	 ? $timeArr['BaseOffset']    : $this->BaseOffset;
