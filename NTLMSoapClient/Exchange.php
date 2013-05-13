@@ -28,6 +28,13 @@ class NTLMSoapClient_Exchange extends NTLMSoapClient {
 	 */
     protected $password;
 	
+       	/**
+     	 * Use NTLM authentication in curl call
+     	 *
+     	 * @var string
+     	 */
+    protected $curlAuthNtlm;
+	
 	/**
 	 * Constructor
 	 * 
@@ -47,6 +54,11 @@ class NTLMSoapClient_Exchange extends NTLMSoapClient {
 		    'http://schemas.microsoft.com/exchange/services/2006/types',
 		    'RequestServerVersion Version="Exchange2007_SP1"'
 		);
+		
+		if (isset($options['curlAuthNtlm'])) {
+            		$this->curlAuthNtlm = $options['curlAuthNtlm'];
+		}
+		
 		$this->__setSoapHeaders($soapHeader);
 		
 		parent::__construct($wsdl, $options);

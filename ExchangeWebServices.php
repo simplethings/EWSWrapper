@@ -31,6 +31,14 @@ class ExchangeWebServices {
 	 * @var string
 	 */
 	protected $password;
+	
+	/**
+     	 * Use NTLM authentication in curl call
+     	 *
+      	 * @var string
+     	 */
+    	protected $curlAuthNtlm;
+	
 
 	/**
 	 * Constructor for the ExchangeWebServices class
@@ -38,15 +46,17 @@ class ExchangeWebServices {
 	 * @param string $server
 	 * @param string $username
 	 * @param string $password
-	 */
+	 * @param bool $curlAuthNtlm
+	*/
 	public function __construct($server = null, $username = null,
-		$password = null) {
+		$password = null, $curlAuthNtlm = false) {
 		//bootstrap
 		include "bootstrap.php";
 		// set the object properties
 		$this->setServer($server);
 		$this->setUsername($username);
 		$this->setPassword($password);
+		$this->setCurlAuthNtlm($curlAuthNtlm);
 	} // end function __construct()
 	
 	/**
@@ -91,6 +101,18 @@ class ExchangeWebServices {
 
 		return true;
 	} // end function setUsername()
+	
+	/**
+	 * Sets curl ntlm auth option
+	 * 
+	 * @param boolean $curlAuthNtlm
+	 */
+	public function setCurlAuthNtlm($curlAuthNtlm){
+	        $this->curlAuthNtlm = $curlAuthNtlm;
+	        
+	        return true;
+	}
+	
 
 	/**
 	 * Function Description
@@ -480,6 +502,7 @@ class ExchangeWebServices {
 				'user' => $this->username,
 				'password' => $this->password,
 				'location' => 'https://'.$this->server.'/EWS/Exchange.asmx',
+				'curlAuthNtlm' => $this->curlAuthNtlm,
 			)); // end return
 	} // end function initializeSoapClient()
 } // end class ExchangeWebService

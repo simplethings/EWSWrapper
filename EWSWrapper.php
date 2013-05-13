@@ -50,7 +50,7 @@ Class EWSWrapper {
 	 * 				'TimeZoneName'
 	 * 
 	 */
-	public function __construct($host, $username, $password, $timeArr=null){
+	public function __construct($host, $username, $password, $timeArr=null, $curlAuthNtlm = false){
 		
 		// inlcude EWS
 		include "ExchangeWebServices.php";
@@ -60,7 +60,7 @@ Class EWSWrapper {
 		$this->host = $host;
 		$this->username = $username;
 		$this->password = $password;
-		$this->ews = new ExchangeWebServices($this->host, $this->username, $this->password, $timeArr);
+		$this->ews = new ExchangeWebServices($this->host, $this->username, $this->password, $curlAuthNtlm);
 		
 		if (is_array($timeArr)){
 			$this->BaseOffset 	= $timeArr['BaseOffset'] 	 ? $timeArr['BaseOffset']    : $this->BaseOffset;
